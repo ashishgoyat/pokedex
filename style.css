@@ -1,0 +1,394 @@
+/* ================= RESET & FONT ================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Baloo 2", cursive;
+}
+
+/* ================= THEME VARIABLES ================= */
+:root {
+    --bg-main: #ffdede;
+    --bg-body-1: #7b7edc;
+    --bg-body-2: #8e91f0;
+    --accent: #ff5e57;
+}
+
+/* ================= BODY ================= */
+body {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--bg-body-1),
+        var(--bg-body-1) 20px,
+        var(--bg-body-2) 20px,
+        var(--bg-body-2) 40px
+    );
+    min-height: 100vh;
+    padding: 30px;
+    transition: background 0.4s ease;
+}
+
+/* ================= MAIN ================= */
+#main {
+    background: var(--bg-main);
+    border: 4px solid #000;
+    border-radius: 22px;
+    padding: 22px;
+    max-width: 950px;
+    margin: auto;
+    box-shadow: 8px 8px 0 #000;
+    transition: background 0.4s ease;
+}
+
+/* ================= HEADING ================= */
+#main h1 {
+    font-size: 42px;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color: #fff;
+    background: var(--accent);
+    border: 4px solid #000;
+    border-radius: 16px;
+    padding: 10px 20px;
+    box-shadow: 5px 5px 0 #000;
+}
+
+/* ================= CONTROLS ================= */
+#main select,
+#main input {
+    appearance: none;
+    padding: 12px 16px;
+    border: 4px solid #000;
+    border-radius: 14px;
+    font-size: 16px;
+    font-weight: 700;
+    background: #fff9c4;
+    margin-right: 10px;
+    box-shadow: 4px 4px 0 #000;
+    transition: transform 0.15s ease;
+}
+
+#main select:hover,
+#main input:hover {
+    transform: rotate(-2deg);
+}
+
+#main select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20'%3E%3Cpolygon points='0,0 20,0 10,10' fill='black'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 12px;
+    padding-right: 35px;
+}
+
+/* ================= BUTTON ================= */
+#main button {
+    padding: 12px 22px;
+    border: 4px solid #000;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--accent), #ff914d);
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 5px 5px 0 #000;
+    transition: all 0.15s ease;
+}
+
+#main button:hover {
+    transform: translate(-2px, -2px) rotate(-1deg);
+    box-shadow: 7px 7px 0 #000;
+}
+
+#main button:active {
+    transform: translate(2px, 2px);
+    box-shadow: 3px 3px 0 #000;
+}
+
+/* ================= CONTAINER ================= */
+#container {
+    margin-top: 25px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 18px;
+}
+
+/* ================= CARD ================= */
+#container > div {
+    position: relative;
+    background: linear-gradient(135deg, #ffffff, #f9f9f9);
+    border: 4px solid #000;
+    border-radius: 22px;
+    padding: 16px 14px 18px;
+    text-align: center;
+    box-shadow: 
+        6px 6px 0 #000,
+        inset 0 0 0 3px rgba(0,0,0,0.05);
+    overflow: hidden;
+    transition: transform 0.25s ease;
+}
+
+/* top accent strip */
+#container > div::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 10px;
+    width: 100%;
+    background: var(--accent);
+}
+
+#container > div:hover {
+    transform: translateY(-10px) rotate(-2deg) scale(1.02);
+}
+
+/* dotted texture */
+#container > div::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px);
+    background-size: 6px 6px;
+    opacity: 0.35;
+    pointer-events: none;
+}
+
+/* ================= IMAGE ================= */
+#container img {
+    width: 120px;
+    height: 120px;
+    background: none;
+    border: 3px solid #000;
+    border-radius: 16px; /* soft rounded square */
+    padding: 6px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 0 #000;
+}
+
+/* ================= NAME BADGE ================= */
+#container div div:nth-child(2) {
+    position: relative;
+    display: inline-block;
+    background: linear-gradient(135deg, var(--accent), #ffb347);
+    color: #fff;
+    border: 4px solid #000;
+    border-radius: 18px;
+    padding: 6px 16px;
+    margin: 8px 0 10px;
+    font-size: 17px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 4px 4px 0 #000;
+}
+
+#container div div:nth-child(2)::after {
+    content: "";
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 80%;
+    height: 40%;
+    background: rgba(255,255,255,0.35);
+    border-radius: 12px;
+}
+
+/* ================= MOVES ================= */
+.move-chip {
+    display: inline-block;
+    background: #ffeaa7;
+    border: 3px dashed #000;
+    border-radius: 14px;
+    padding: 4px 8px;
+    margin: 3px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: capitalize;
+    box-shadow: 2px 2px 0 #000;
+}
+
+/* ================= STATS ================= */
+#container div div:nth-child(4),
+#container div div:nth-child(5) {
+    display: inline-block;
+    margin: 4px 6px;
+    padding: 6px 10px;
+    border-radius: 12px;
+    border: 3px solid #000;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+#container div div:nth-child(4) {
+    background: #ff7675;
+}
+
+#container div div:nth-child(5) {
+    background: #74b9ff;
+}
+
+/* ================= TYPE THEMES ================= */
+
+/* WATER */
+body.water {
+    --bg-main: #d9f3ff;
+    --bg-body-1: #4fc3f7;
+    --bg-body-2: #81d4fa;
+    --accent: #0288d1;
+}
+
+/* FIRE */
+body.fire {
+    --bg-main: #ffe2d6;
+    --bg-body-1: #ff7043;
+    --bg-body-2: #ffab91;
+    --accent: #d84315;
+}
+
+/* GRASS */
+body.grass {
+    --bg-main: #e3f8e5;
+    --bg-body-1: #66bb6a;
+    --bg-body-2: #a5d6a7;
+    --accent: #2e7d32;
+}
+
+/* GHOST */
+body.ghost {
+    --bg-main: #eee6ff;
+    --bg-body-1: #7e57c2;
+    --bg-body-2: #b39ddb;
+    --accent: #4527a0;
+}
+
+/* FIGHTING */
+body.fighting {
+    --bg-main: #ffe0e0;
+    --bg-body-1: #d32f2f;
+    --bg-body-2: #ef9a9a;
+    --accent: #8e0000;
+}
+
+/* FLYING */
+body.flying {
+    --bg-main: #eef6ff;
+    --bg-body-1: #90caf9;
+    --bg-body-2: #bbdefb;
+    --accent: #1e88e5;
+}
+
+/* DRAGON */
+body.dragon {
+    --bg-main: #ede7f6;
+    --bg-body-1: #5e35b1;
+    --bg-body-2: #9575cd;
+    --accent: #311b92;
+}
+
+/* ELECTRIC */
+body.electric {
+    --bg-main: #fff9c4;
+    --bg-body-1: #ffd600;
+    --bg-body-2: #fff176;
+    --accent: #f9a825;
+}
+
+/* FAIRY */
+body.fairy {
+    --bg-main: #fff0f6;
+    --bg-body-1: #f48fb1;
+    --bg-body-2: #f8bbd0;
+    --accent: #ad1457;
+}
+
+
+/* ================= MOBILE ================= */
+@media (max-width: 600px) {
+    #main select,
+    #main input,
+    #main button {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+
+
+/* final polishing============================================================================================================================= */
+/* entry animation */
+@keyframes cardPop {
+  from { transform: translateY(20px) scale(0.95); opacity: 0; }
+  to   { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+#container > div {
+  animation: cardPop .35s ease both;
+}
+
+/* small stagger using nth-child */
+#container > div:nth-child(odd)  { animation-delay: .03s; }
+#container > div:nth-child(even) { animation-delay: .06s; }
+
+
+/* glow on hover */
+#container > div:hover {
+  box-shadow:
+    0 0 0 4px #000,
+    0 12px 30px rgba(0,0,0,.25),
+    0 0 22px var(--accent);
+}
+
+/* watermark */
+#container > div::marker { content: none; } /* safety */
+
+#container > div .watermark {
+  display:none;
+}
+
+/* use :before already used for dots; add another via background-image */
+#container > div {
+  background-image:
+    radial-gradient(rgba(0,0,0,0.08) 1px, transparent 1px),
+    radial-gradient(circle at 80% 85%,
+      rgba(0,0,0,0.08) 0 28px,
+      transparent 29px);
+  background-size: 6px 6px, auto;
+  background-repeat: repeat, no-repeat;
+}
+
+
+
+/* image lift */
+#container > div:hover img {
+  transform: translateY(-4px) scale(1.03);
+}
+
+#container img {
+  transition: transform .2s ease;
+}
+
+
+/* animated shine */
+@keyframes shine {
+  from { left: -60%; }
+  to   { left: 120%; }
+}
+
+#container div div:nth-child(2)::after {
+  animation: shine 1.2s ease-in-out infinite;
+  opacity: .35;
+}
+
+
+/* subtle variety */
+.move-chip:nth-child(1){ background:#ffeaa7; }
+.move-chip:nth-child(2){ background:#fab1a0; }
+.move-chip:nth-child(3){ background:#81ecec; }
+
+
+@media (max-width:600px){
+  #container > div { transform:none !important; }
+  #container > div:hover { box-shadow: 0 10px 22px rgba(0,0,0,.2); }
+}
